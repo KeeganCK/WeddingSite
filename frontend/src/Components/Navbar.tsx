@@ -43,11 +43,10 @@ const Navbar = () => {
             >
               <MenuIcon />
             </IconButton> */}
-            <CustomLink to="/#home">
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Milena & Keegan
-              </Typography>
-            </CustomLink>
+
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <CustomLink to="/#home">Milena & Keegan</CustomLink>
+            </Typography>
 
             <CustomLink to="/#RSVP">
               <Button color={"inherit"}>RSVP</Button>
