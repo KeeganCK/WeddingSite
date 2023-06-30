@@ -9,6 +9,7 @@ import PreWedding from "./Components/PreWedding";
 import Activities from "./Components/Activities";
 import Music from "./Components/Music";
 import FAQ from "./Components/FAQ";
+import Wedding from "./Components/Wedding";
 
 function App() {
   return (
@@ -16,13 +17,14 @@ function App() {
       <Navbar />
       <ScrollToHashElement />
       <HomePage />
-      <RSVP />
+      <Wedding />
       <Travel />
       <Accomodations />
       <PreWedding />
-      <Activities />
       <Music />
+      <Activities />
       <FAQ />
+      <RSVP />
     </div>
   );
 }

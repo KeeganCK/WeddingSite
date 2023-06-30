@@ -3,7 +3,7 @@ import { SectionDiv } from './RSVP'
 
 const Activities = () => {
   return (
-    <SectionDiv id="activities" color={'#B2BDA0'}>Activities</SectionDiv>
+    <SectionDiv id="activities" color={false}>Activities</SectionDiv>
   )
 }
 

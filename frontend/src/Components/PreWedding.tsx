@@ -3,7 +3,7 @@ import { SectionDiv } from './RSVP'
 
 const PreWedding = () => {
   return (
-    <SectionDiv id="preWedding" color={"EBEFE32"}>PreWedding</SectionDiv>
+    <SectionDiv id="preWedding" color={false}>PreWedding</SectionDiv>
   )
 }
 
