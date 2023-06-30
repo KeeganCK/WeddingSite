@@ -8,7 +8,7 @@ export const SectionDiv = styled.div<SectionDivProps>`
   height: 100vh;
   width: 100%;
   background-color: ${props => props.color ? '#B2BDA0' : '#EBEFE3'};
-	padding-top: 120px;
+	padding-top: 80px;
 `;
 
 const RSVP = () => {
