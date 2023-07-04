@@ -57,8 +57,8 @@ const handleChange = (value: string) => {
 };
 
 interface GuestOptionsProps {
-  value: string,
-  label: string
+  value: string;
+  label: string;
 }
 
 const RSVP = () => {
@@ -66,11 +66,13 @@ const RSVP = () => {
   const [guests, setGuests] = useState<number>(0);
   const [emailFound, setEmailFound] = useState<boolean>(false);
   const [emailLoading, setEmailLoading] = useState<boolean>(false);
-  const [guestOptions, setGuestOptions] = useState<Array<GuestOptionsProps>>()
+  const [loading, setLoading] = useState<boolean>(false);
+  const [guestOptions, setGuestOptions] = useState<Array<GuestOptionsProps>>();
+  const [email, setEmail] = useState<string>("");
 
   const onFinish = async (values: any) => {
-    console.log("Success:", values);
     try {
+      setLoading(true);
       const response = await fetch(`http://localhost:3001/api/rsvp`, {
         method: "POST",
         headers: {
@@ -78,31 +80,44 @@ const RSVP = () => {
         },
         body: JSON.stringify({
           name: values.name,
-          email: values.email,
+          food: values.food,
+          email: email,
           attending: values.wedding,
           attendingPre: values.preWedding,
           dietary: values.dietary,
           guestOne: values.guestOne,
+          dietaryGuestOne: values.dietaryGuestOne,
+          guestOneFood: values.guestOneFood,
+          guestOnePre: values.guestOnePre,
           guestTwo: values.guestTwo,
+          dietaryGuestTwo: values.dietaryGuestTwo,
+          guestTwoFood: values.guestTwoFood,
+          guestTwoPre: values.guestTwoPre,
           guestThree: values.guestThree,
+          dietaryGuestThree: values.dietaryGuestThree,
+          guestThreeFood: values.guestThreeFood,
+          guestThreePre: values.guestThreePre,
         }),
       });
       const responseData = await response.json();
       if (!response.ok) {
         throw new Error(responseData.message);
       }
+      showNotification(responseData.message);
+      setLoading(false)
     } catch (err: any) {
       api.error({
         message: err.message,
         placement: "top",
       });
+      setLoading(false)
     }
   };
 
   const findEmail = async (value: string) => {
     try {
       setEmailLoading(true);
-      if(!value) {
+      if (!value) {
         throw new Error("Need to enter an Email");
       }
       const response = await fetch(
@@ -115,14 +130,15 @@ const RSVP = () => {
       }
       setEmailFound(responseData.emailFound);
       let tempArray = [];
-      for(let i = 0; i < responseData.guests + 1; i++) {
+      for (let i = 0; i < responseData.guests + 1; i++) {
         const tempObject = {
-          value: (i).toString(),
-          label: (i).toString()
-        }
-        tempArray.push(tempObject)
+          value: i.toString(),
+          label: i.toString(),
+        };
+        tempArray.push(tempObject);
       }
-      setGuestOptions(tempArray)
+      setGuestOptions(tempArray);
+      setEmail(value);
       setEmailLoading(false);
       showNotification(responseData.message);
     } catch (err: any) {
@@ -177,7 +193,13 @@ const RSVP = () => {
             >
               <CustomInput />
             </CustomFormItem>
-            <CustomFormItem label="Entrée" name="food">
+            <CustomFormItem
+              label="Entrée"
+              name="food"
+              rules={[
+                { required: true, message: "Please let us know your choice" },
+              ]}
+            >
               <Select
                 onChange={handleChange}
                 options={[
@@ -194,6 +216,9 @@ const RSVP = () => {
               name="wedding"
               label="Attending wedding"
               wrapperCol={{ span: 16 }}
+              rules={[
+                { required: true, message: "Please let us know your choice" },
+              ]}
             >
               <Select
                 onChange={handleChange}
@@ -207,6 +232,9 @@ const RSVP = () => {
               name="preWedding"
               label="Attending Pre-Wedding Event"
               wrapperCol={{ span: 16 }}
+              rules={[
+                { required: true, message: "Please let us know your choice" },
+              ]}
             >
               <Select
                 onChange={handleChange}
@@ -231,7 +259,16 @@ const RSVP = () => {
                 <CustomFormItem label="Guest Name" name="guestOne">
                   <CustomInput />
                 </CustomFormItem>
-                <CustomFormItem label="Food Choice" name="guestOneFood">
+                <CustomFormItem
+                  label="Food Choice"
+                  name="guestOneFood"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please let us know your choice",
+                    },
+                  ]}
+                >
                   <Select
                     onChange={handleChange}
                     options={[
@@ -250,6 +287,12 @@ const RSVP = () => {
                 <CustomFormItem
                   label="Attending Pre-Weddding Event"
                   name="guestOnePre"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please let us know your choice",
+                    },
+                  ]}
                 >
                   <Select
                     onChange={handleChange}
@@ -268,7 +311,16 @@ const RSVP = () => {
                 <CustomFormItem label="Guest Name" name="guestTwo">
                   <CustomInput />
                 </CustomFormItem>
-                <CustomFormItem label="Food Choice" name="guestTwoFood">
+                <CustomFormItem
+                  label="Food Choice"
+                  name="guestTwoFood"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please let us know your choice",
+                    },
+                  ]}
+                >
                   <Select
                     onChange={handleChange}
                     options={[
@@ -287,6 +339,12 @@ const RSVP = () => {
                 <CustomFormItem
                   label="Attending Pre-Weddding Event"
                   name="guestTwoPre"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please let us know your choice",
+                    },
+                  ]}
                 >
                   <Select
                     onChange={handleChange}
@@ -305,7 +363,16 @@ const RSVP = () => {
                 <CustomFormItem label="Guest Name" name="guestThree">
                   <CustomInput />
                 </CustomFormItem>
-                <CustomFormItem label="Food Choice" name="guestThreeFood">
+                <CustomFormItem
+                  label="Food Choice"
+                  name="guestThreeFood"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please let us know your choice",
+                    },
+                  ]}
+                >
                   <Select
                     onChange={handleChange}
                     options={[
@@ -324,6 +391,12 @@ const RSVP = () => {
                 <CustomFormItem
                   label="Attending Pre-Weddding Event"
                   name="guestThreePre"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please let us know your choice",
+                    },
+                  ]}
                 >
                   <Select
                     onChange={handleChange}
@@ -336,7 +409,7 @@ const RSVP = () => {
               </>
             )}
             <CustomFormItem wrapperCol={{ offset: 6, span: 16 }}>
-              <Button type="primary" htmlType="submit">
+              <Button loading={loading} type="primary" htmlType="submit">
                 Submit
               </Button>
             </CustomFormItem>
