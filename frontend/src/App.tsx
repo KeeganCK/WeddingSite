@@ -9,7 +9,7 @@ import PreWedding from "./Components/PreWedding";
 import Activities from "./Components/Activities";
 import Music from "./Components/Music";
 import FAQ from "./Components/FAQ";
-import './App.css';
+import "./App.css";
 import Wedding from "./Components/Wedding";
 
 function App() {
