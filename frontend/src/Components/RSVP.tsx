@@ -22,11 +22,11 @@ export const SectionDiv = styled.div<SectionDivProps>`
   align-content: center;
 `;
 
-const RSVPDiv = styled.div`
+export const RSVPDiv = styled.div`
   width: 70%;
 `;
 
-const EmailDiv = styled.div`
+export const EmailDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
