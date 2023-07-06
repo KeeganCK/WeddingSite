@@ -69,6 +69,7 @@ const RSVP = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [guestOptions, setGuestOptions] = useState<Array<GuestOptionsProps>>();
   const [email, setEmail] = useState<string>("");
+  const [doneRSVP, setDoneRSVP] = useState<boolean>(false);
 
   const onFinish = async (values: any) => {
     try {
@@ -103,6 +104,8 @@ const RSVP = () => {
       if (!response.ok) {
         throw new Error(responseData.message);
       }
+      setDoneRSVP(responseData.doneRSVP);
+      setEmailFound(false);
       showNotification(responseData.message);
       setLoading(false)
     } catch (err: any) {
@@ -138,6 +141,7 @@ const RSVP = () => {
         tempArray.push(tempObject);
       }
       setGuestOptions(tempArray);
+      setDoneRSVP(responseData.doneRSVP);
       setEmail(value);
       setEmailLoading(false);
       showNotification(responseData.message);
@@ -164,7 +168,7 @@ const RSVP = () => {
       {/* <h3>RSVP</h3> */}
       <RsvpSvg />
       <RSVPDiv>
-        {!emailFound ? (
+        {!emailFound || doneRSVP ? (
           <EmailDiv>
             <h4 style={{ marginRight: "10px" }}>Email: </h4>
             <CustomSearch
