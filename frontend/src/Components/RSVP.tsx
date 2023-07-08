@@ -70,6 +70,10 @@ const RSVP = () => {
   const [guestOptions, setGuestOptions] = useState<Array<GuestOptionsProps>>();
   const [email, setEmail] = useState<string>("");
   const [doneRSVP, setDoneRSVP] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+  const [guestNames, setGuestNames] = useState<Array<string>>([]);
+
+  // const [form] = Form.useForm();
 
   const onFinish = async (values: any) => {
     try {
@@ -107,13 +111,13 @@ const RSVP = () => {
       setDoneRSVP(responseData.doneRSVP);
       setEmailFound(false);
       showNotification(responseData.message);
-      setLoading(false)
+      setLoading(false);
     } catch (err: any) {
       api.error({
         message: err.message,
         placement: "top",
       });
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -142,6 +146,11 @@ const RSVP = () => {
       }
       setGuestOptions(tempArray);
       setDoneRSVP(responseData.doneRSVP);
+      setName(responseData.name);
+      setGuestNames(responseData.guestNames);
+      // form.setFieldsValue({
+      //   name: responseData.name
+      // })
       setEmail(value);
       setEmailLoading(false);
       showNotification(responseData.message);
@@ -189,13 +198,14 @@ const RSVP = () => {
             autoComplete="off"
           >
             <CustomFormItem
-              label="Name"
+              label="Your Name"
               name="name"
+              initialValue={name}
               rules={[
                 { required: true, message: "Please CustomInput your Name" },
               ]}
             >
-              <CustomInput />
+              <CustomInput/>
             </CustomFormItem>
             <CustomFormItem
               label="Entrée"
@@ -260,7 +270,11 @@ const RSVP = () => {
               <>
                 <hr />
                 <br />
-                <CustomFormItem label="Guest Name" name="guestOne">
+                <CustomFormItem
+                  label="Guest Name"
+                  name="guestOne"
+                  initialValue={guestNames.length > 0 ? guestNames[0] : ""}
+                >
                   <CustomInput />
                 </CustomFormItem>
                 <CustomFormItem
@@ -312,7 +326,11 @@ const RSVP = () => {
               <>
                 <hr />
                 <br />
-                <CustomFormItem label="Guest Name" name="guestTwo">
+                <CustomFormItem
+                  label="Guest Name"
+                  name="guestTwo"
+                  initialValue={guestNames.length > 1 ? guestNames[1] : ""}
+                >
                   <CustomInput />
                 </CustomFormItem>
                 <CustomFormItem
@@ -364,7 +382,11 @@ const RSVP = () => {
               <>
                 <hr />
                 <br />
-                <CustomFormItem label="Guest Name" name="guestThree">
+                <CustomFormItem
+                  label="Guest Name"
+                  name="guestThree"
+                  initialValue={guestNames.length > 2 ? guestNames[2] : ""}
+                >
                   <CustomInput />
                 </CustomFormItem>
                 <CustomFormItem
