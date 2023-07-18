@@ -17,15 +17,25 @@ const TimeDiv = styled.div`
 	padding: 5px;
 	width: 60px;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  @media(max-width: 800px) {
+    width: 40px;
+  }
 `;
 
 const TimeNumberSpan = styled.span`
 	font-weight: 700;
 	font-size: 24px;
 	font-family: 'Great Vibes', cursive;
+  @media(max-width: 800px) {
+    font-size: 20px;
+  }
 `;
 
-const TimeWordSpan = styled.span``;
+const TimeWordSpan = styled.span`
+@media(max-width: 800px) {
+    font-size: 12px;
+  }
+`;
 
 interface remainingTimeProps {
   seconds: string;

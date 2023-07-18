@@ -1,5 +1,9 @@
 body {
   font-family: "Ysabeau Infant", sans-serif;
+  width: 100%;
+  @media(max-width: 1000px) {
+    width: calc(100% - 1px);
+  }
 }
 
 .ant-notification-top {

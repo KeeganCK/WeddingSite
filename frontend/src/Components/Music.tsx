@@ -10,6 +10,7 @@ import {
 import { notification, Form, Select, Button } from "antd";
 import MusicTable from "./MusicTable";
 import { styled } from "styled-components";
+import MusicSvg from "../svgComponents/MusicSvg";
 
 const MusicTableDiv = styled.div`
   display: flex;
@@ -114,6 +115,7 @@ const Music = () => {
   return (
     <SectionDiv id="music" color={true}>
       {contextHolder}
+      <MusicSvg />
       <RSVPDiv>
         {!emailFound ? (
           <EmailDiv>

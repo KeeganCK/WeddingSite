@@ -9,12 +9,14 @@ const { Search } = Input;
 
 interface SectionDivProps {
   color: boolean;
+  background?: string;
 }
 
 export const SectionDiv = styled.div<SectionDivProps>`
   height: 100vh;
   width: 100%;
   background-color: ${(props) => (props.color ? "#B2BDA0" : "#EBEFE3")};
+  background-image: ${(props) => (props.background && `url("data:image/svg+xml,${props.background}")`)};
   display: flex;
   flex-direction: column;
   justify-content: center;
