@@ -170,6 +170,7 @@ const RSVP = () => {
     api.success({
       message: message,
       placement: "top",
+      duration: 10
     });
   };
 
