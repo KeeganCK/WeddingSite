@@ -15,6 +15,7 @@ const FAQCardDiv = styled.div`
 `;
 
 const QuestionP = styled.p`
+  /* font-family: "DreamAvenue" !important; */
   font-size: 22px;
   margin: 0 0 10px 0;
   text-align: center;
@@ -25,7 +26,7 @@ const AnswerP = styled.p`
   font-size: 19px;
   margin: 0 0 20px 0;
   text-align: center;
-  font-family: "Ysabeau Infant", sans-serif !important;
+  /* font-family: "Ysabeau Infant", sans-serif !important; */
 `;
 
 const FAQ = () => {
@@ -65,22 +66,32 @@ const FAQ = () => {
         </AnswerP>
         <QuestionP>WHAT SHOULD I DO IF I CAN'T MAKE IT?</QuestionP>
         <AnswerP>
-          You will be missed! If you can not make it to the wedding, please let
+          You will truly be missed! If you can not make it to the wedding, please let
           us know as soon as possible and RSVP "No" so we can plan accordingly.
         </AnswerP>
-        <QuestionP>
-          WILL TRANSPORTATION BE PROVIDED?
-        </QuestionP>
+        <QuestionP>WILL TRANSPORTATION BE PROVIDED?</QuestionP>
         <AnswerP>
-          There will be transportation provided on the day of the wedding.
+          There will be transportation provided only on the day of the wedding.
           However, there will be no transportation provided from the airport to
-          the hotel. Taxi's are the easiest form of transportation throughout Cartagena!{" "}
+          the hotel. Taxi's are the easiest form of transportation throughout
+          Cartagena!{" "}
+        </AnswerP>
+        <QuestionP>WILL YOU BE ACCEPTING WEDDING GIFTS?</QuestionP>
+        <AnswerP>
+          We truly appreciate that attending our wedding in Colombia is a
+          thoughtful and kind gesture in itself. Therefore, your presence is the
+          only gift we need. For those who still wish to gift us, we will
+          have a card box for your well wishes.{" "}
         </AnswerP>
         <QuestionP>
           I STILL HAVE QUESTIONS, WHAT IS THE BEST WAY TO CONTACT YOU?
         </QuestionP>
         <AnswerP>
-          Please send any wedding-related questions to <a href="mailto: Milena%20and%20Keegan<milaandkeegs_wedding@outlook.com>">this email</a>!{" "}
+          Please send any wedding-related questions to{" "}
+          <a href="mailto: Milena%20and%20Keegan<milaandkeegs_wedding@outlook.com>">
+            this email
+          </a>
+          !{" "}
         </AnswerP>
       </FAQCardDiv>
     </SectionDiv>

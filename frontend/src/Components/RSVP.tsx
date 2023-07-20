@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Button, Form, Input, Select, notification } from "antd";
 import "./RSVP.css";
 import { TitleP, StyledPlant } from "./Wedding";
-import { MusicDescriptionAddP } from "./Music";
 
 const { Search } = Input;
 
@@ -37,8 +36,8 @@ export const EmailDiv = styled.div`
 
 export const CustomFormItem = styled(Form.Item)`
   .ant-form-item-label > label {
-    font-family: "DreamAvenue";
-    font-weight: bold;
+    /* font-family: "DreamAvenue"; */
+    /* font-weight: bold; */
     font-size: 16px;
   }
 `;
@@ -183,7 +182,7 @@ const RSVP = () => {
         {!emailFound || doneRSVP ? (
           <div style={{ textAlign: "center" }}>
             <StyledPlant />
-            <p style={{ fontSize: '20px', fontWeight: "bold", margin: '0 0 10px 0' }}>
+            <p style={{ fontSize: '20px', margin: '0 0 10px 0' }}>
               Please RSVP by October 1st, 2023.
             </p>
             <EmailDiv>

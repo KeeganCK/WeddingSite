@@ -16,7 +16,7 @@ const LocationP = styled.p`
 `;
 
 export const TitleP = styled.p`
-  margin: 50px 0 0 0;
+  margin: 65px 0 0 0;
   font-size: 104px;
   font-family: "DreamAvenue";
   font-style: italic;

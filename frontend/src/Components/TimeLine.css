@@ -4,9 +4,9 @@
 }
 
 .ant-timeline-item-content {
-  font-size: 19px;
-  font-family: "DreamAvenue" !important;
-  font-weight: bold;
+  font-size: 18px;
+  /* font-family: "DreamAvenue" !important; */
+  /* font-weight: bold; */
 }
 
 .ant-timeline {
