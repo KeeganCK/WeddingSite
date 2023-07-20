@@ -19,8 +19,8 @@ function App() {
       <ScrollToHashElement />
       <HomePage />
       <Wedding />
-      <Travel />
       <Accomodations />
+      <Travel />
       <PreWedding />
       <Music />
       <Activities />

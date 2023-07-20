@@ -22,23 +22,23 @@ const MusicTableDiv = styled.div`
 `;
 
 const MusicTableP = styled.p`
-  font-size: 40px;
+  font-size: 32px;
   margin: 20px 0 15px 0;
-  font-weight: bold;
+  /* font-weight: bold; */
 `;
 
 export const MusicDescriptionP = styled.p`
   font-size: 20px;
   margin: 0;
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
 `;
 
 export const MusicDescriptionAddP = styled.p`
   font-size: 20px;
   margin: 0 0 10px 0;
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
   width: 70%;
 `;
 

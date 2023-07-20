@@ -8,27 +8,24 @@ export const AccDescriptionP = styled.p`
   font-size: 20px;
   margin: 0 0 10px 0;
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
 `;
 
 const Accomodations = () => {
   return (
-    <SectionDiv id="accomodations" color={true}>
+    <SectionDiv id="accomodations" color={false}>
       <TitleP>ACCOMODATIONS</TitleP>
       <StyledPlant />
       <RSVPDiv>
         <AccDescriptionP>
           We are currently in the process of finding group rates for
-          accomodations. Once we have an estimate of how many people are
-          attending, we will post the accomodation options to this page. Please
-          RSVP as soon as you can!{" "}
+          accomodations for a total of 7 nights (April 28th, 2024
+          to May 5th, 2024). Once we have an estimate of how many people are
+          attending, we will post the accomodation options to this page.{" "}
         </AccDescriptionP>
-        {/* <AccDescriptionP>
-          We will be receiving group rates for a total of 5 nights (April 29th
-          to May 4th) - If you plan on staying for longer in Colombia, and would
-          like to stay at the same place, please email us by October 1st and
-          specify your dates.
-        </AccDescriptionP> */}
+        <AccDescriptionP>
+        Please RSVP as soon as you can!{" "}
+        </AccDescriptionP>
       </RSVPDiv>
     </SectionDiv>
   );

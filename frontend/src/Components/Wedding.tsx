@@ -11,8 +11,8 @@ import { PiPlantThin } from "react-icons/pi";
 
 
 const LocationP = styled.p`
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 22px;
+  /* font-weight: bold; */
 `;
 
 export const TitleP = styled.p`
@@ -32,7 +32,7 @@ const Wedding = () => {
     <SectionDiv color={true} id="wedding">
       <TitleP>WEDDING</TitleP>
       <StyledPlant />
-      <p style={{ margin: "0", fontSize: "28px", fontWeight: "bold" }}>
+      <p style={{ margin: "0", fontSize: "28px" }}>
         The Wedding will take place on May 2nd 2024
       </p>
       <LocationP>Casa Cordoba Cabal, Cartagena, Colombia</LocationP>

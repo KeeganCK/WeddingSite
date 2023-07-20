@@ -52,11 +52,11 @@ const Navbar = () => {
 						<CustomLink to="/#wedding">
               <Button color={"inherit"}>Wedding</Button>
             </CustomLink>
-            <CustomLink to="/#travel">
-              <Button color={"inherit"}>Travel</Button>
-            </CustomLink>
             <CustomLink to="/#accomodations">
               <Button color={"inherit"}>Accomodations</Button>
+            </CustomLink>
+            <CustomLink to="/#travel">
+              <Button color={"inherit"}>Travel</Button>
             </CustomLink>
             <CustomLink to="/#preWedding">
               <Button color={"inherit"}>Pre-Wedding</Button>

@@ -1,14 +1,25 @@
-import React from 'react'
-import { SectionDiv } from './RSVP'
+import React from "react";
+import { RSVPDiv, SectionDiv } from "./RSVP";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
-import { StyledPlant, TitleP } from './Wedding';
+import { StyledPlant, TitleP } from "./Wedding";
+import { AccDescriptionP } from "./Accomodations";
 
 const PreWedding = () => {
   return (
     <SectionDiv id="preWedding" color={false}>
       <TitleP>PRE-WEDDING</TitleP>
       <StyledPlant />
-      <h4>The Pre-Wedding Event will take place on May 1st 2024</h4>
+      <RSVPDiv>
+        <AccDescriptionP>
+          There will be a welcome event in Cartagena on May 1st 2024, the day before the wedding.
+          More details on the specifics of the event will be coming soon.
+        </AccDescriptionP>
+        <AccDescriptionP>
+          If you think that you will be able to make it to the welcome event,
+          please specify this when you RSVP so that we know
+          approximate numbers.
+        </AccDescriptionP>
+      </RSVPDiv>
       <AddToCalendarButton
         name="Keegan and Milenas Pre-Wedding Event"
         startDate="2024-05-01"
@@ -18,7 +29,7 @@ const PreWedding = () => {
         trigger="click"
       ></AddToCalendarButton>
     </SectionDiv>
-  )
-}
+  );
+};
 
-export default PreWedding
+export default PreWedding;
