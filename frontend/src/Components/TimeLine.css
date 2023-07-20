@@ -1,11 +1,22 @@
 .ant-timeline-item-head.ant-timeline-item-head-custom {
-    background-color: transparent;
+  background-color: transparent;
+  font-size: 18px;
 }
 
- /* .ant-timeline-item-label {
-    font-size: 16px;
-} */
+.ant-timeline-item-content {
+  font-size: 19px;
+  font-family: "DreamAvenue" !important;
+  font-weight: bold;
+}
 
-/* .ant-timeline-item-content {
-    font-size: 16px;
-} */
+.ant-timeline {
+	border: 1px solid black;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+	padding: 25px 25px 10px 25px;
+	margin-bottom: 30px;
+}
+
+.ant-timeline-item-last {
+	padding-bottom: 0 !important;
+}

@@ -18,7 +18,8 @@ const CustomLink = styled(Link)`
 
 const theme = createTheme({
   typography: {
-    fontFamily: ["'Ysabeau Infant'", "sans-serif"].join(","),
+    // fontFamily: ["'Ysabeau Infant'", "sans-serif"].join(","),
+    fontFamily: ["DreamAvenue"].join(","),
   },
 });
 

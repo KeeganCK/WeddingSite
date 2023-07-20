@@ -1,10 +1,10 @@
 import React from 'react'
 import { SectionDiv } from './RSVP'
-import FaqSvg from '../svgComponents/FaqSvg'
+import { TitleP } from './Wedding'
 
 const FAQ = () => {
   return (
-    <SectionDiv id="faq" color={true}><FaqSvg /></SectionDiv>
+    <SectionDiv id="faq" color={true}><TitleP>FAQ</TitleP></SectionDiv>
   )
 }
 

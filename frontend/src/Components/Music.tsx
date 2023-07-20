@@ -10,7 +10,7 @@ import {
 import { notification, Form, Select, Button } from "antd";
 import MusicTable from "./MusicTable";
 import { styled } from "styled-components";
-import MusicSvg from "../svgComponents/MusicSvg";
+import { TitleP, StyledPlant } from "./Wedding";
 
 const MusicTableDiv = styled.div`
   display: flex;
@@ -19,6 +19,27 @@ const MusicTableDiv = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+`;
+
+const MusicTableP = styled.p`
+  font-size: 40px;
+  margin: 20px 0 15px 0;
+  font-weight: bold;
+`;
+
+export const MusicDescriptionP = styled.p`
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+`;
+
+export const MusicDescriptionAddP = styled.p`
+  font-size: 20px;
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-weight: bold;
+  width: 70%;
 `;
 
 const handleChange = (value: string) => {
@@ -30,7 +51,7 @@ const Music = () => {
   const [emailLoading, setEmailLoading] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [searchAgain, setSearchAgain] = useState<boolean>(false);
-	const [cssClass, setCssClass] = useState<string>("");
+  const [cssClass, setCssClass] = useState<string>("");
 
   const [api, contextHolder] = notification.useNotification();
 
@@ -115,27 +136,41 @@ const Music = () => {
   return (
     <SectionDiv id="music" color={true}>
       {contextHolder}
-      <MusicSvg />
+      <TitleP>MUSIC</TitleP>
       <RSVPDiv>
         {!emailFound ? (
-          <EmailDiv>
-            <h4 style={{ marginRight: "10px" }}>Email: </h4>
-            <CustomSearch
-              loading={emailLoading}
-              enterButton="Check Email"
-              onSearch={findEmail}
-              placeholder="Please only use the email that the invitation was sent to"
-            />
-          </EmailDiv>
+          <div style={{ textAlign: "center" }}>
+            <StyledPlant />
+            <MusicDescriptionP>
+              We would love for you to add your favourite music to our wedding
+              playlist so we can dance the night away!
+            </MusicDescriptionP>
+            <MusicDescriptionP>
+              To begin adding songs, please enter your email below
+            </MusicDescriptionP>
+            <EmailDiv>
+              <h4 style={{ marginRight: "10px" }}>Email: </h4>
+              <CustomSearch
+                loading={emailLoading}
+                enterButton="Check Email"
+                onSearch={findEmail}
+                placeholder="Please only use the email that the invitation was sent to"
+              />
+            </EmailDiv>
+          </div>
         ) : (
           <MusicTableDiv>
+            <MusicDescriptionAddP>
+              To add songs, enter the artist name and track name as accurately
+              as possible. Add as many songs as you'd like!
+            </MusicDescriptionAddP>
             <Form
               name="rsvp"
               labelCol={{ span: 0 }}
               initialValues={{ remember: true }}
               onFinish={onFinish}
               autoComplete="off"
-              style={{ width: '75%' }}
+              style={{ width: "75%", marginTop: '20px' }}
             >
               <CustomFormItem label="Artist" name="artist">
                 <CustomInput />
@@ -143,14 +178,23 @@ const Music = () => {
               <CustomFormItem label="Track" name="track">
                 <CustomInput />
               </CustomFormItem>
-              <CustomFormItem wrapperCol={{ offset: 10, span: 16 }}>
+              <CustomFormItem wrapperCol={{ offset: 11, span: 16 }}>
                 <Button loading={loading} type="primary" htmlType="submit">
                   Add Song
                 </Button>
               </CustomFormItem>
             </Form>
-            <MusicTable searchAgain={searchAgain} setSearchAgain={setSearchAgain} cssClass={cssClass}/>
-          </MusicTableDiv >
+            <MusicTableP>Our Wedding Playlist</MusicTableP>
+            <MusicDescriptionAddP>
+              If you'd like to search for songs that are already on the wedding
+              playlist, use the search bar below.
+            </MusicDescriptionAddP>
+            <MusicTable
+              searchAgain={searchAgain}
+              setSearchAgain={setSearchAgain}
+              cssClass={cssClass}
+            />
+          </MusicTableDiv>
         )}
       </RSVPDiv>
     </SectionDiv>

@@ -10,7 +10,7 @@ const MusicSearchDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 75%;
-  margin-top: 50px;
+  margin-top: 20px;
 `;
 
 interface MusicProps {

@@ -1,29 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { SectionDiv } from "./RSVP";
-import TravelSvg from "../svgComponents/TravelSvg";
-import { getWindowDimensions } from "./HomePage";
+import { StyledPlant, TitleP } from "./Wedding";
+import { MusicDescriptionAddP } from "./Music";
+import { Button } from "antd";
+import "./RSVP.css";
+import { styled } from "styled-components";
+
+export const TravelDescriptionP = styled.p`
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-weight: bold;
+  width: 70%;
+`;
 
 const Travel = () => {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
   return (
     <SectionDiv id="travel" color={false}>
-      <TravelSvg
-        width={windowDimensions.width > 800 ? "500" : "300"}
-        height={
-          windowDimensions.width > 800
-            ? (500 / 1.77).toString()
-            : (300 / 1.77).toString()
-        }
-      />
+      <TitleP>TRAVEL</TitleP>
+      <StyledPlant />
+      <MusicDescriptionAddP>
+        Fly into Rafael Núñez International Airport
+      </MusicDescriptionAddP>
+      <TravelDescriptionP>
+        We recommend purchasing plane tickets as soon as you can to find the most economical price
+      </TravelDescriptionP>
+      <a
+        href="https://www.google.com/travel/flights?tfs=CBwQARojEgoyMDIzLTA4LTA0agwIAhIIL20vMDd5cHRyBwgBEgNDVEcaIxIKMjAyMy0wOC0wOGoHCAESA0NUR3IMCAISCC9tLzA3eXB0QAFIAXABggELCP___________wGYAQE"
+        target="_blank"
+      >
+        <Button type="primary">Find a flight</Button>
+      </a>
     </SectionDiv>
   );
 };

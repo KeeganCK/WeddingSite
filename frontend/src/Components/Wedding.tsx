@@ -1,55 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { SectionDiv } from "./RSVP";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
-import WeddingSvg from "../svgComponents/WeddingSvg";
 import { getWindowDimensions } from "./HomePage";
 import { Timeline } from "antd";
 import { BiSolidDrink, BiSolidHomeHeart, BiSolidArch } from "react-icons/bi";
 import { GiPartyPopper } from "react-icons/gi";
 import "./TimeLine.css";
 import { styled } from "styled-components";
+import { PiPlantThin } from "react-icons/pi";
+
 
 const LocationP = styled.p`
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
+export const TitleP = styled.p`
+  margin: 50px 0 0 0;
+  font-size: 104px;
+  font-family: "DreamAvenue";
+  font-style: italic;
+`;
+
+export const StyledPlant = styled(PiPlantThin)`
+  margin: 0 0 20px 0;
+  font-size: 52px;
+`
+
 const Wedding = () => {
-  const [windowDimensions, setWindowDimensions] = useState(
-    getWindowDimensions()
-  );
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <SectionDiv color={true} id="wedding">
-      <WeddingSvg
-        width={windowDimensions.width > 800 ? "500" : "300"}
-        height={
-          windowDimensions.width > 800
-            ? (500 / 1.77).toString()
-            : (300 / 1.77).toString()
-        }
-      />
-      <AddToCalendarButton
-        name="Milena and Keegan's Wedding in Colombia"
-        startDate="2024-05-02"
-        options={["Apple", "Google", "Outlook.com"]}
-        size={"3"}
-        lightMode="light"
-        trigger="click"
-        buttonStyle="round"
-      ></AddToCalendarButton>
-      <p style={{ margin: "0", fontSize: "26px" }}>
+      <TitleP>WEDDING</TitleP>
+      <StyledPlant />
+      <p style={{ margin: "0", fontSize: "28px", fontWeight: "bold" }}>
         The Wedding will take place on May 2nd 2024
       </p>
-      <LocationP>Location: Casa Cordoba Cabal, Cartagena, Colombia</LocationP>
+      <LocationP>Casa Cordoba Cabal, Cartagena, Colombia</LocationP>
       <br />
       <Timeline
         items={[
@@ -95,6 +81,14 @@ const Wedding = () => {
           },
         ]}
       />
+      <AddToCalendarButton
+        name="Milena and Keegan's Wedding in Colombia"
+        startDate="2024-05-02"
+        options={["Apple", "Google", "Outlook.com"]}
+        size={"2"}
+        lightMode="dark"
+        trigger="click"
+      ></AddToCalendarButton>
     </SectionDiv>
   );
 };

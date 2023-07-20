@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Button, Form, Input, Select, notification } from "antd";
 import "./RSVP.css";
-import { NullLiteral } from "typescript";
-import RsvpSvg from "../svgComponents/rsvpSvg";
+import { TitleP, StyledPlant } from "./Wedding";
+import { MusicDescriptionAddP } from "./Music";
 
 const { Search } = Input;
 
@@ -13,10 +13,11 @@ interface SectionDivProps {
 }
 
 export const SectionDiv = styled.div<SectionDivProps>`
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: ${(props) => (props.color ? "#B2BDA0" : "#EBEFE3")};
-  background-image: ${(props) => (props.background && `url("data:image/svg+xml,${props.background}")`)};
+  background-image: ${(props) =>
+    props.background && `url("data:image/svg+xml,${props.background}")`};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,8 +37,8 @@ export const EmailDiv = styled.div`
 
 export const CustomFormItem = styled(Form.Item)`
   .ant-form-item-label > label {
-    font-family: "Ysabeau Infant", sans-serif;
-    font-weight: 500;
+    font-family: "DreamAvenue";
+    font-weight: bold;
     font-size: 16px;
   }
 `;
@@ -177,18 +178,24 @@ const RSVP = () => {
     <SectionDiv id="RSVP" color={false}>
       {contextHolder}
       {/* <h3>RSVP</h3> */}
-      <RsvpSvg />
+      <TitleP>RSVP</TitleP>
       <RSVPDiv>
         {!emailFound || doneRSVP ? (
-          <EmailDiv>
-            <h4 style={{ marginRight: "10px" }}>Email: </h4>
-            <CustomSearch
-              loading={emailLoading}
-              enterButton="Check Email"
-              onSearch={findEmail}
-              placeholder="Please only use the email that the invitation was sent to"
-            />
-          </EmailDiv>
+          <div style={{ textAlign: "center" }}>
+            <StyledPlant />
+            <p style={{ fontSize: '20px', fontWeight: "bold", margin: '0 0 10px 0' }}>
+              Please RSVP by October 1st, 2023.
+            </p>
+            <EmailDiv>
+              <h4 style={{ marginRight: "10px" }}>Email: </h4>
+              <CustomSearch
+                loading={emailLoading}
+                enterButton="Check Email"
+                onSearch={findEmail}
+                placeholder="Please only use the email that the invitation was sent to"
+              />
+            </EmailDiv>
+          </div>
         ) : (
           <Form
             name="rsvp"
@@ -207,7 +214,7 @@ const RSVP = () => {
                 { required: true, message: "Please CustomInput your Name" },
               ]}
             >
-              <CustomInput/>
+              <CustomInput />
             </CustomFormItem>
             <CustomFormItem
               label="Entrée"
@@ -280,7 +287,7 @@ const RSVP = () => {
                   <CustomInput />
                 </CustomFormItem>
                 <CustomFormItem
-                  label="Food Choice"
+                  label="Entrée"
                   name="guestOneFood"
                   rules={[
                     {
@@ -336,7 +343,7 @@ const RSVP = () => {
                   <CustomInput />
                 </CustomFormItem>
                 <CustomFormItem
-                  label="Food Choice"
+                  label="Entrée"
                   name="guestTwoFood"
                   rules={[
                     {

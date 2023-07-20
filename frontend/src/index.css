@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  font-family: 'Ysabeau Infant', sans-serif !important;
+  /* font-family: 'Ysabeau Infant', sans-serif !important; */
+  font-family: "DreamAvenue" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -8,4 +9,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family: "DreamAvenue";
+  src: local("DreamAvenue"),
+    url("./fonts/DreamAvenue.ttf") format("truetype");
+  font-weight: normal;
 }
