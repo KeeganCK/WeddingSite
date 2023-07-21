@@ -25,7 +25,17 @@ const MusicTableP = styled.p`
   font-size: 32px;
   margin: 20px 0 15px 0;
   /* font-weight: bold; */
+  @media (max-width: 800px) {
+    font-size: 22px;
+  }
 `;
+
+const FormDiv = styled.div`
+  width: 70%;
+  @media(max-width: 800px) {
+    width: 100%;
+  }
+`
 
 export const MusicDescriptionP = styled.p`
   font-size: 20px;
@@ -40,6 +50,10 @@ export const MusicDescriptionAddP = styled.p`
   text-align: center;
   /* font-weight: bold; */
   width: 70%;
+  @media (max-width: 800px) {
+    font-size: 18px;
+    width: 80%;
+  }
 `;
 
 const handleChange = (value: string) => {
@@ -100,16 +114,19 @@ const Music = () => {
   const onFinish = async (values: any) => {
     try {
       setLoading(true);
-      const response = await fetch(`https://mandkwedding-4c8008d201f3.herokuapp.com/api/addMusic`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          artist: values.artist,
-          track: values.track,
-        }),
-      });
+      const response = await fetch(
+        `https://mandkwedding-4c8008d201f3.herokuapp.com/api/addMusic`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            artist: values.artist,
+            track: values.track,
+          }),
+        }
+      );
       const responseData = await response.json();
       if (!response.ok) {
         throw new Error(responseData.message);
@@ -164,26 +181,43 @@ const Music = () => {
               To add songs, enter the artist name and track name as accurately
               as possible. Add as many songs as you'd like!
             </MusicDescriptionAddP>
-            <Form
-              name="rsvp"
-              labelCol={{ span: 0 }}
-              initialValues={{ remember: true }}
-              onFinish={onFinish}
-              autoComplete="off"
-              style={{ width: "75%", marginTop: '20px' }}
-            >
-              <CustomFormItem label="Artist" name="artist">
-                <CustomInput />
-              </CustomFormItem>
-              <CustomFormItem label="Track" name="track">
-                <CustomInput />
-              </CustomFormItem>
-              <CustomFormItem wrapperCol={{ offset: 10, span: 24 }}>
-                <Button loading={loading} type="primary" htmlType="submit">
-                  Add Song
-                </Button>
-              </CustomFormItem>
-            </Form>
+            <FormDiv>
+              <Form
+                name="rsvp"
+                labelCol={{ span: 0 }}
+                initialValues={{ remember: true }}
+                onFinish={onFinish}
+                autoComplete="off"
+                style={{
+                  width: "100%",
+                  marginTop: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <CustomFormItem
+                  label="Artist"
+                  name="artist"
+                  style={{ width: "100%" }}
+                >
+                  <CustomInput />
+                </CustomFormItem>
+                <CustomFormItem
+                  label="Track"
+                  name="track"
+                  style={{ width: "100%" }}
+                >
+                  <CustomInput />
+                </CustomFormItem>
+                <CustomFormItem>
+                  <Button loading={loading} type="primary" htmlType="submit">
+                    Add Song
+                  </Button>
+                </CustomFormItem>
+              </Form>
+            </FormDiv>
+
             <MusicTableP>Our Wedding Playlist</MusicTableP>
             <MusicDescriptionAddP>
               If you'd like to search for songs that are already on the wedding

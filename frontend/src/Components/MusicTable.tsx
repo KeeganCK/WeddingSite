@@ -9,8 +9,11 @@ import "./MusicTable.css";
 const MusicSearchDiv = styled.div`
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 70%;
   margin-top: 20px;
+  @media(max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 interface MusicProps {
