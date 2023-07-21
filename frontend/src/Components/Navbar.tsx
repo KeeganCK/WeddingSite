@@ -80,13 +80,13 @@ const Navbar = () => {
   ];
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography
+      {/* <Typography
         variant="h6"
         sx={{ padding: "5px 0", backgroundColor: "rgb(141, 158, 111)" }}
       >
         <MK />
       </Typography>
-      <Divider />
+      <Divider /> */}
       <List>
         <CustomLink to={`/#home`}>
           <ListItem key={"Home"} disablePadding>
