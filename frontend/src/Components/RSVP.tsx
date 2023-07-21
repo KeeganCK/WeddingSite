@@ -179,10 +179,10 @@ const RSVP = () => {
 
   return (
     <SectionDiv id="RSVP" color={false}>
-      {contextHolder}
       {/* <h3>RSVP</h3> */}
       <TitleP>RSVP</TitleP>
       <RSVPDiv>
+      {contextHolder}
         <div>
           {!emailFound || doneRSVP ? (
             <div style={{ textAlign: "center" }}>
