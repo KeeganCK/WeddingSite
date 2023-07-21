@@ -30,7 +30,7 @@ const MusicTableP = styled.p`
   }
 `;
 
-const FormDiv = styled.div`
+export const FormDiv = styled.div`
   width: 70%;
   @media(max-width: 800px) {
     width: 100%;

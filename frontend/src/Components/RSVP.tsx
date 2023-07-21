@@ -48,6 +48,10 @@ export const CustomInput = styled(Input)`
 
 export const CustomSearch = styled(Search)`
   font-family: "Ysabeau Infant", sans-serif;
+  @media(max-width: 800px) {
+    width: 80%;
+    margin: auto;
+  }
 `;
 
 const onFinishFailed = (errorInfo: any) => {
@@ -182,7 +186,7 @@ const RSVP = () => {
       {/* <h3>RSVP</h3> */}
       <TitleP>RSVP</TitleP>
       <RSVPDiv>
-      {contextHolder}
+        {contextHolder}
         <div>
           {!emailFound || doneRSVP ? (
             <div style={{ textAlign: "center" }}>
