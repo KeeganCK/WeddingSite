@@ -5,8 +5,9 @@
 
 .ant-timeline-item-content {
   font-size: 18px;
-  /* font-family: "DreamAvenue" !important; */
-  /* font-weight: bold; */
+  @media(max-width: 800px) {
+    font-size: 14px;
+  }
 }
 
 .ant-timeline {

@@ -12,7 +12,9 @@ import { PiPlantThin } from "react-icons/pi";
 
 const LocationP = styled.p`
   font-size: 22px;
-  /* font-weight: bold; */
+  @media(max-width: 800px) {
+    font-size: 18px;
+  }
 `;
 
 export const TitleP = styled.p`
@@ -20,7 +22,21 @@ export const TitleP = styled.p`
   font-size: 104px;
   font-family: "DreamAvenue";
   font-style: italic;
+  @media(max-width: 900px) {
+    font-size: 72px;
+  }
+  @media(max-width: 600px) {
+    font-size: 48px;
+  }
 `;
+
+const WeddingInfoP = styled.p`
+  margin: 0;
+  font-size: 28px;
+  @media(max-width: 800px) {
+    font-size: 22px;
+  }
+`
 
 export const StyledPlant = styled(PiPlantThin)`
   margin: 0 0 20px 0;
@@ -32,9 +48,9 @@ const Wedding = () => {
     <SectionDiv color={true} id="wedding">
       <TitleP>WEDDING</TitleP>
       <StyledPlant />
-      <p style={{ margin: "0", fontSize: "28px" }}>
+      <WeddingInfoP>
         The Wedding will take place on May 2nd 2024
-      </p>
+      </WeddingInfoP>
       <LocationP>Casa Cordoba Cabal, Cartagena, Colombia</LocationP>
       <br />
       <Timeline

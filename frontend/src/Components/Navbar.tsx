@@ -26,7 +26,6 @@ const CustomLink = styled(Link)`
 const MobileMKDiv = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
 `;
 
 const theme = createTheme({
@@ -71,7 +70,7 @@ const Navbar = () => {
       value: "activities",
     },
     {
-      name: "Faq",
+      name: "FAQ",
       value: "faq",
     },
     {
@@ -83,7 +82,7 @@ const Navbar = () => {
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography
         variant="h6"
-        sx={{ padding: "10px 0", backgroundColor: "rgb(141, 158, 111)" }}
+        sx={{ padding: "5px 0", backgroundColor: "rgb(141, 158, 111)" }}
       >
         <MK />
       </Typography>
@@ -132,6 +131,13 @@ const Navbar = () => {
           <Toolbar>
             {windowDimensions.width < 900 ? (
               <>
+                <MobileMKDiv>
+                  <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    <CustomLink to="/#home">
+                      <MK />
+                    </CustomLink>
+                  </Typography>
+                </MobileMKDiv>
                 <IconButton
                   size="large"
                   edge="start"
@@ -142,11 +148,6 @@ const Navbar = () => {
                 >
                   <MenuIcon />
                 </IconButton>
-                <MobileMKDiv>
-                  <CustomLink to="/#home">
-                    <MK />
-                  </CustomLink>
-                </MobileMKDiv>
               </>
             ) : (
               <>
@@ -169,7 +170,7 @@ const Navbar = () => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           sx={{
-            "& .MuiDrawer-paper": { width: 240 },
+            "& .MuiDrawer-paper": { backgroundColor: "#EBEFE3", width: 240 },
           }}
         >
           {drawer}
