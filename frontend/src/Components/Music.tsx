@@ -149,7 +149,6 @@ const Music = () => {
               To begin adding songs, please enter your email below
             </MusicDescriptionP>
             <EmailDiv>
-              <h4 style={{ marginRight: "10px" }}>Email: </h4>
               <CustomSearch
                 loading={emailLoading}
                 enterButton="Check Email"
@@ -178,7 +177,7 @@ const Music = () => {
               <CustomFormItem label="Track" name="track">
                 <CustomInput />
               </CustomFormItem>
-              <CustomFormItem wrapperCol={{ offset: 11, span: 16 }}>
+              <CustomFormItem wrapperCol={{ offset: 10, span: 24 }}>
                 <Button loading={loading} type="primary" htmlType="submit">
                   Add Song
                 </Button>

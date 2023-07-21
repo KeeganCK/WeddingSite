@@ -187,7 +187,6 @@ const RSVP = () => {
               Please RSVP by October 1st, 2023.
             </p>
             <EmailDiv>
-              <h4 style={{ marginRight: "10px" }}>Email: </h4>
               <CustomSearch
                 loading={emailLoading}
                 enterButton="Check Email"
@@ -199,8 +198,7 @@ const RSVP = () => {
         ) : (
           <Form
             name="rsvp"
-            labelCol={{ span: 6 }}
-            wrapperCol={{ span: 16 }}
+            labelCol={{ span: 24 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -238,7 +236,6 @@ const RSVP = () => {
             <CustomFormItem
               name="wedding"
               label="Attending wedding"
-              wrapperCol={{ span: 16 }}
               rules={[
                 { required: true, message: "Please let us know your choice" },
               ]}
@@ -254,7 +251,6 @@ const RSVP = () => {
             <CustomFormItem
               name="preWedding"
               label="Attending Pre-Wedding Event"
-              wrapperCol={{ span: 16 }}
               rules={[
                 { required: true, message: "Please let us know your choice" },
               ]}
@@ -443,7 +439,7 @@ const RSVP = () => {
                 </CustomFormItem>
               </>
             )}
-            <CustomFormItem wrapperCol={{ offset: 6, span: 16 }}>
+            <CustomFormItem wrapperCol={{ offset: 10, span: 16 }}>
               <Button loading={loading} type="primary" htmlType="submit">
                 Submit
               </Button>
