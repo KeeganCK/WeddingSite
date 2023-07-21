@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,10 +10,23 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styled from "styled-components";
 import { Link, BrowserRouter } from "react-router-dom";
 import MK from "../svgComponents/MK";
+import Divider from "@mui/material/Divider";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Drawer from "@mui/material/Drawer";
+import { getWindowDimensions } from "./HomePage";
 
 const CustomLink = styled(Link)`
   color: inherit;
   text-decoration: none;
+`;
+
+const MobileMKDiv = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const theme = createTheme({
@@ -23,6 +36,88 @@ const theme = createTheme({
 });
 
 const Navbar = () => {
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const mainNavItems = [
+    {
+      name: "Wedding",
+      value: "wedding",
+    },
+    {
+      name: "Accomodations",
+      value: "accomodations",
+    },
+    {
+      name: "Travel",
+      value: "travel",
+    },
+    {
+      name: "Pre-Wedding",
+      value: "preWedding",
+    },
+    {
+      name: "Music",
+      value: "music",
+    },
+    {
+      name: "Activities",
+      value: "activities",
+    },
+    {
+      name: "Faq",
+      value: "faq",
+    },
+    {
+      name: "RSVP",
+      value: "RSVP",
+    },
+  ];
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <Typography
+        variant="h6"
+        sx={{ padding: "10px 0", backgroundColor: "rgb(141, 158, 111)" }}
+      >
+        <MK />
+      </Typography>
+      <Divider />
+      <List>
+        <CustomLink to={`/#home`}>
+          <ListItem key={"Home"} disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }}>
+              <ListItemText primary={"Home"} />
+            </ListItemButton>
+          </ListItem>
+        </CustomLink>
+        {mainNavItems.map((item) => (
+          <CustomLink to={`/#${item.value}`}>
+            <ListItem key={item.name} disablePadding>
+              <ListItemButton sx={{ textAlign: "center" }}>
+                <ListItemText primary={item.name} />
+              </ListItemButton>
+            </ListItem>
+          </CustomLink>
+        ))}
+      </List>
+    </Box>
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
@@ -31,49 +126,54 @@ const Navbar = () => {
             color: "white",
             backgroundColor: "#8D9E6F",
             position: "fixed",
-						padding: "5px 0"
+            padding: "5px 0",
           }}
         >
           <Toolbar>
-            {/* <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton> */}
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <CustomLink to="/#home"><MK /></CustomLink>
-            </Typography>
-
-						<CustomLink to="/#wedding">
-              <Button color={"inherit"}>Wedding</Button>
-            </CustomLink>
-            <CustomLink to="/#accomodations">
-              <Button color={"inherit"}>Accomodations</Button>
-            </CustomLink>
-            <CustomLink to="/#travel">
-              <Button color={"inherit"}>Travel</Button>
-            </CustomLink>
-            <CustomLink to="/#preWedding">
-              <Button color={"inherit"}>Pre-Wedding</Button>
-            </CustomLink>
-						<CustomLink to="/#music">
-              <Button color={"inherit"}>Music</Button>
-            </CustomLink>
-            <CustomLink to="/#activities">
-              <Button color={"inherit"}>Activities</Button>
-            </CustomLink>
-            <CustomLink to="/#faq">
-              <Button color={"inherit"}>Faq</Button>
-            </CustomLink>
-						<CustomLink to="/#RSVP">
-              <Button color={"inherit"}>RSVP</Button>
-            </CustomLink>
+            {windowDimensions.width < 900 ? (
+              <>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ mr: 2 }}
+                  onClick={handleDrawerToggle}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <MobileMKDiv>
+                  <CustomLink to="/#home">
+                    <MK />
+                  </CustomLink>
+                </MobileMKDiv>
+              </>
+            ) : (
+              <>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                  <CustomLink to="/#home">
+                    <MK />
+                  </CustomLink>
+                </Typography>
+                {mainNavItems.map((item) => (
+                  <CustomLink to={`/#${item.value}`}>
+                    <Button color={"inherit"}>{item.name}</Button>
+                  </CustomLink>
+                ))}
+              </>
+            )}
           </Toolbar>
         </AppBar>
+        <Drawer
+          anchor={"left"}
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          sx={{
+            "& .MuiDrawer-paper": { width: 240 },
+          }}
+        >
+          {drawer}
+        </Drawer>
       </Box>
     </ThemeProvider>
   );
