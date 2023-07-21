@@ -5,3 +5,10 @@
 .ant-select-item-option-content {
     font-family: 'Ysabeau Infant', sans-serif;
 }
+
+.ant-notification-notice {
+    @media(max-width: 800px) {
+        width: 88% !important;
+        align-self: center;
+    }
+}
