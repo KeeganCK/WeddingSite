@@ -12,7 +12,7 @@ import MusicTable from "./MusicTable";
 import { styled } from "styled-components";
 import { TitleP, StyledPlant } from "./Wedding";
 
-const MusicTableDiv = styled.div`
+export const MusicTableDiv = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;

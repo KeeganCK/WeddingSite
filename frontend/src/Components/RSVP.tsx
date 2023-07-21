@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Button, Form, Input, Select, notification } from "antd";
 import "./RSVP.css";
 import { TitleP, StyledPlant } from "./Wedding";
+import { MusicTableDiv } from "./Music";
 
 const { Search } = Input;
 
@@ -197,7 +198,7 @@ const RSVP = () => {
               </EmailDiv>
             </div>
           ) : (
-            <div>
+            <MusicTableDiv>
               <Form
                 name="rsvp"
                 labelCol={{ span: 24 }}
@@ -456,7 +457,7 @@ const RSVP = () => {
                   </Button>
                 </CustomFormItem>
               </Form>
-            </div>
+            </MusicTableDiv>
           )}
         </div>
       </RSVPDiv>
