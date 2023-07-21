@@ -26,7 +26,7 @@ export const TitleP = styled.p`
     font-size: 72px;
   }
   @media(max-width: 600px) {
-    font-size: 48px;
+    font-size: 44px;
   }
 `;
 
