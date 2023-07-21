@@ -80,7 +80,7 @@ const RSVP = () => {
   const onFinish = async (values: any) => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:3001/api/rsvp`, {
+      const response = await fetch(`https://mandkwedding-4c8008d201f3.herokuapp.com/api/rsvp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

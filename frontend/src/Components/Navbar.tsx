@@ -166,7 +166,7 @@ const Navbar = () => {
           </Toolbar>
         </AppBar>
         <Drawer
-          anchor={"left"}
+          anchor={"right"}
           open={mobileOpen}
           onClose={handleDrawerToggle}
           sx={{
