@@ -3,7 +3,12 @@ import styled from "styled-components";
 import { Button, Form, Input, Select, notification } from "antd";
 import "./RSVP.css";
 import { TitleP, StyledPlant } from "./Wedding";
-import { FormDiv, MusicTableDiv } from "./Music";
+import {
+  FormDiv,
+  MusicDescriptionAddP,
+  MusicTableDiv,
+  MusicTableP,
+} from "./Music";
 
 const { Search } = Input;
 
@@ -171,306 +176,296 @@ const RSVP = () => {
     api.success({
       message: message,
       placement: "top",
-      duration: 10,
     });
   };
 
   return (
     <SectionDiv id="RSVP" color={false}>
-      {/* <h3>RSVP</h3> */}
+      {contextHolder}
       <TitleP>RSVP</TitleP>
       <RSVPDiv>
-        {contextHolder}
-        <div>
-          {!emailFound || doneRSVP ? (
-            <div style={{ textAlign: "center" }}>
-              <StyledPlant />
-              <p style={{ fontSize: "20px", margin: "0 0 10px 0" }}>
-                Please RSVP by October 1st, 2023.
-              </p>
-              <EmailDiv>
-                <CustomSearch
-                  loading={emailLoading}
-                  enterButton="Check Email"
-                  onSearch={findEmail}
-                  placeholder="Please only use the email that the invitation was sent to"
-                />
-              </EmailDiv>
-            </div>
-          ) : (
-            <MusicTableDiv>
-              <FormDiv>
-                <Form
-                  name="rsvp"
-                  labelCol={{ span: 24 }}
-                  initialValues={{ remember: true }}
-                  onFinish={onFinish}
-                  onFinishFailed={onFinishFailed}
-                  autoComplete="off"
+        {!emailFound || doneRSVP ? (
+          <div style={{ textAlign: "center" }}>
+            <StyledPlant />
+            <p style={{ fontSize: "20px", margin: "0 0 10px 0" }}>
+              Please RSVP by October 1st, 2023.
+            </p>
+            <EmailDiv>
+              <CustomSearch
+                loading={emailLoading}
+                enterButton="Check Email"
+                onSearch={findEmail}
+                placeholder="Please only use the email that the invitation was sent to"
+              />
+            </EmailDiv>
+          </div>
+        ) : (
+          <MusicTableDiv>
+            <FormDiv>
+              <Form
+                name="rsvp"
+                labelCol={{ span: 24 }}
+                initialValues={{ remember: true }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                autoComplete="off"
+              >
+                <CustomFormItem
+                  label="Your Name"
+                  name="name"
+                  initialValue={name}
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please CustomInput your Name",
+                    },
+                  ]}
                 >
-                  <CustomFormItem
-                    label="Your Name"
-                    name="name"
-                    initialValue={name}
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please CustomInput your Name",
-                      },
+                  <CustomInput />
+                </CustomFormItem>
+                <CustomFormItem
+                  label="Entrée"
+                  name="food"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please let us know your choice",
+                    },
+                  ]}
+                >
+                  <Select
+                    onChange={handleChange}
+                    options={[
+                      { value: "chicken", label: "Chicken" },
+                      { value: "pork", label: "Pork" },
+                      { value: "vegtarian", label: "Vegetarian" },
                     ]}
-                  >
-                    <CustomInput />
-                  </CustomFormItem>
-                  <CustomFormItem
-                    label="Entrée"
-                    name="food"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please let us know your choice",
-                      },
+                  />
+                </CustomFormItem>
+                <CustomFormItem label="Dietary Restriction" name="dietary">
+                  <CustomInput placeholder="Allergies/Preferences" />
+                </CustomFormItem>
+                <CustomFormItem
+                  name="wedding"
+                  label="Attending wedding"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please let us know your choice",
+                    },
+                  ]}
+                >
+                  <Select
+                    onChange={handleChange}
+                    options={[
+                      { value: "yes", label: "Yes" },
+                      { value: "no", label: "No" },
                     ]}
-                  >
-                    <Select
-                      onChange={handleChange}
-                      options={[
-                        { value: "chicken", label: "Chicken" },
-                        { value: "pork", label: "Pork" },
-                        { value: "vegtarian", label: "Vegetarian" },
+                  />
+                </CustomFormItem>
+                <CustomFormItem
+                  name="preWedding"
+                  label="Attending Pre-Wedding Event"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please let us know your choice",
+                    },
+                  ]}
+                >
+                  <Select
+                    onChange={handleChange}
+                    options={[
+                      { value: "yes", label: "Yes" },
+                      { value: "no", label: "No" },
+                    ]}
+                  />
+                </CustomFormItem>
+                <CustomFormItem label="Number of Guests" name="guests">
+                  <Select
+                    defaultValue="0"
+                    onChange={handleChange}
+                    options={guestOptions}
+                    onSelect={(value) => setGuests(parseInt(value))}
+                  />
+                </CustomFormItem>
+                {guests > 0 && (
+                  <>
+                    <hr />
+                    <br />
+                    <CustomFormItem
+                      label="Guest Name"
+                      name="guestOne"
+                      initialValue={guestNames.length > 0 ? guestNames[0] : ""}
+                    >
+                      <CustomInput />
+                    </CustomFormItem>
+                    <CustomFormItem
+                      label="Entrée"
+                      name="guestOneFood"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please let us know your choice",
+                        },
                       ]}
-                    />
-                  </CustomFormItem>
-                  <CustomFormItem label="Dietary Restriction" name="dietary">
-                    <CustomInput placeholder="Allergies/Preferences" />
-                  </CustomFormItem>
-                  <CustomFormItem
-                    name="wedding"
-                    label="Attending wedding"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please let us know your choice",
-                      },
-                    ]}
-                  >
-                    <Select
-                      onChange={handleChange}
-                      options={[
-                        { value: "yes", label: "Yes" },
-                        { value: "no", label: "No" },
+                    >
+                      <Select
+                        onChange={handleChange}
+                        options={[
+                          { value: "chicken", label: "Chicken" },
+                          { value: "pork", label: "Pork" },
+                          { value: "vegtarian", label: "Vegetarian" },
+                        ]}
+                      />
+                    </CustomFormItem>
+                    <CustomFormItem
+                      label="Dietary Restrictions"
+                      name="dietaryGuestOne"
+                    >
+                      <CustomInput />
+                    </CustomFormItem>
+                    <CustomFormItem
+                      label="Attending Pre-Weddding Event"
+                      name="guestOnePre"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please let us know your choice",
+                        },
                       ]}
-                    />
-                  </CustomFormItem>
-                  <CustomFormItem
-                    name="preWedding"
-                    label="Attending Pre-Wedding Event"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please let us know your choice",
-                      },
-                    ]}
-                  >
-                    <Select
-                      onChange={handleChange}
-                      options={[
-                        { value: "yes", label: "Yes" },
-                        { value: "no", label: "No" },
+                    >
+                      <Select
+                        onChange={handleChange}
+                        options={[
+                          { value: "yes", label: "Yes" },
+                          { value: "no", label: "No" },
+                        ]}
+                      />
+                    </CustomFormItem>
+                  </>
+                )}
+                {guests > 1 && (
+                  <>
+                    <hr />
+                    <br />
+                    <CustomFormItem
+                      label="Guest Name"
+                      name="guestTwo"
+                      initialValue={guestNames.length > 1 ? guestNames[1] : ""}
+                    >
+                      <CustomInput />
+                    </CustomFormItem>
+                    <CustomFormItem
+                      label="Entrée"
+                      name="guestTwoFood"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please let us know your choice",
+                        },
                       ]}
-                    />
-                  </CustomFormItem>
-                  <CustomFormItem label="Number of Guests" name="guests">
-                    <Select
-                      defaultValue="0"
-                      onChange={handleChange}
-                      options={guestOptions}
-                      onSelect={(value) => setGuests(parseInt(value))}
-                    />
-                  </CustomFormItem>
-                  {guests > 0 && (
-                    <>
-                      <hr />
-                      <br />
-                      <CustomFormItem
-                        label="Guest Name"
-                        name="guestOne"
-                        initialValue={
-                          guestNames.length > 0 ? guestNames[0] : ""
-                        }
-                      >
-                        <CustomInput />
-                      </CustomFormItem>
-                      <CustomFormItem
-                        label="Entrée"
-                        name="guestOneFood"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please let us know your choice",
-                          },
+                    >
+                      <Select
+                        onChange={handleChange}
+                        options={[
+                          { value: "chicken", label: "Chicken" },
+                          { value: "pork", label: "Pork" },
+                          { value: "vegtarian", label: "Vegetarian" },
                         ]}
-                      >
-                        <Select
-                          onChange={handleChange}
-                          options={[
-                            { value: "chicken", label: "Chicken" },
-                            { value: "pork", label: "Pork" },
-                            { value: "vegtarian", label: "Vegetarian" },
-                          ]}
-                        />
-                      </CustomFormItem>
-                      <CustomFormItem
-                        label="Dietary Restrictions"
-                        name="dietaryGuestOne"
-                      >
-                        <CustomInput />
-                      </CustomFormItem>
-                      <CustomFormItem
-                        label="Attending Pre-Weddding Event"
-                        name="guestOnePre"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please let us know your choice",
-                          },
+                      />
+                    </CustomFormItem>
+                    <CustomFormItem
+                      label="Dietary Restrictions"
+                      name="dietaryGuestTwo"
+                    >
+                      <CustomInput />
+                    </CustomFormItem>
+                    <CustomFormItem
+                      label="Attending Pre-Weddding Event"
+                      name="guestTwoPre"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please let us know your choice",
+                        },
+                      ]}
+                    >
+                      <Select
+                        onChange={handleChange}
+                        options={[
+                          { value: "yes", label: "Yes" },
+                          { value: "no", label: "No" },
                         ]}
-                      >
-                        <Select
-                          onChange={handleChange}
-                          options={[
-                            { value: "yes", label: "Yes" },
-                            { value: "no", label: "No" },
-                          ]}
-                        />
-                      </CustomFormItem>
-                    </>
-                  )}
-                  {guests > 1 && (
-                    <>
-                      <hr />
-                      <br />
-                      <CustomFormItem
-                        label="Guest Name"
-                        name="guestTwo"
-                        initialValue={
-                          guestNames.length > 1 ? guestNames[1] : ""
-                        }
-                      >
-                        <CustomInput />
-                      </CustomFormItem>
-                      <CustomFormItem
-                        label="Entrée"
-                        name="guestTwoFood"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please let us know your choice",
-                          },
+                      />
+                    </CustomFormItem>
+                  </>
+                )}
+                {guests > 2 && (
+                  <>
+                    <hr />
+                    <br />
+                    <CustomFormItem
+                      label="Guest Name"
+                      name="guestThree"
+                      initialValue={guestNames.length > 2 ? guestNames[2] : ""}
+                    >
+                      <CustomInput />
+                    </CustomFormItem>
+                    <CustomFormItem
+                      label="Food Choice"
+                      name="guestThreeFood"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please let us know your choice",
+                        },
+                      ]}
+                    >
+                      <Select
+                        onChange={handleChange}
+                        options={[
+                          { value: "chicken", label: "Chicken" },
+                          { value: "pork", label: "Pork" },
+                          { value: "vegtarian", label: "Vegetarian" },
                         ]}
-                      >
-                        <Select
-                          onChange={handleChange}
-                          options={[
-                            { value: "chicken", label: "Chicken" },
-                            { value: "pork", label: "Pork" },
-                            { value: "vegtarian", label: "Vegetarian" },
-                          ]}
-                        />
-                      </CustomFormItem>
-                      <CustomFormItem
-                        label="Dietary Restrictions"
-                        name="dietaryGuestTwo"
-                      >
-                        <CustomInput />
-                      </CustomFormItem>
-                      <CustomFormItem
-                        label="Attending Pre-Weddding Event"
-                        name="guestTwoPre"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please let us know your choice",
-                          },
+                      />
+                    </CustomFormItem>
+                    <CustomFormItem
+                      label="Dietary Restrictions"
+                      name="dietaryGuestThree"
+                    >
+                      <CustomInput />
+                    </CustomFormItem>
+                    <CustomFormItem
+                      label="Attending Pre-Weddding Event"
+                      name="guestThreePre"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please let us know your choice",
+                        },
+                      ]}
+                    >
+                      <Select
+                        onChange={handleChange}
+                        options={[
+                          { value: "yes", label: "Yes" },
+                          { value: "no", label: "No" },
                         ]}
-                      >
-                        <Select
-                          onChange={handleChange}
-                          options={[
-                            { value: "yes", label: "Yes" },
-                            { value: "no", label: "No" },
-                          ]}
-                        />
-                      </CustomFormItem>
-                    </>
-                  )}
-                  {guests > 2 && (
-                    <>
-                      <hr />
-                      <br />
-                      <CustomFormItem
-                        label="Guest Name"
-                        name="guestThree"
-                        initialValue={
-                          guestNames.length > 2 ? guestNames[2] : ""
-                        }
-                      >
-                        <CustomInput />
-                      </CustomFormItem>
-                      <CustomFormItem
-                        label="Food Choice"
-                        name="guestThreeFood"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please let us know your choice",
-                          },
-                        ]}
-                      >
-                        <Select
-                          onChange={handleChange}
-                          options={[
-                            { value: "chicken", label: "Chicken" },
-                            { value: "pork", label: "Pork" },
-                            { value: "vegtarian", label: "Vegetarian" },
-                          ]}
-                        />
-                      </CustomFormItem>
-                      <CustomFormItem
-                        label="Dietary Restrictions"
-                        name="dietaryGuestThree"
-                      >
-                        <CustomInput />
-                      </CustomFormItem>
-                      <CustomFormItem
-                        label="Attending Pre-Weddding Event"
-                        name="guestThreePre"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please let us know your choice",
-                          },
-                        ]}
-                      >
-                        <Select
-                          onChange={handleChange}
-                          options={[
-                            { value: "yes", label: "Yes" },
-                            { value: "no", label: "No" },
-                          ]}
-                        />
-                      </CustomFormItem>
-                    </>
-                  )}
-                  <CustomFormItem wrapperCol={{ offset: 10, span: 16 }}>
-                    <Button loading={loading} type="primary" htmlType="submit">
-                      Submit
-                    </Button>
-                  </CustomFormItem>
-                </Form>
-              </FormDiv>
-            </MusicTableDiv>
-          )}
-        </div>
+                      />
+                    </CustomFormItem>
+                  </>
+                )}
+                <CustomFormItem wrapperCol={{ offset: 10, span: 16 }}>
+                  <Button loading={loading} type="primary" htmlType="submit">
+                    Submit
+                  </Button>
+                </CustomFormItem>
+              </Form>
+            </FormDiv>
+          </MusicTableDiv>
+        )}
       </RSVPDiv>
     </SectionDiv>
   );

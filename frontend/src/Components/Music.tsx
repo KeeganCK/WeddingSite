@@ -21,7 +21,7 @@ export const MusicTableDiv = styled.div`
   width: 100%;
 `;
 
-const MusicTableP = styled.p`
+export const MusicTableP = styled.p`
   font-size: 32px;
   margin: 20px 0 15px 0;
   /* font-weight: bold; */
