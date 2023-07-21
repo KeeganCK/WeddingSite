@@ -157,9 +157,6 @@ const RSVP = () => {
       setDoneRSVP(responseData.doneRSVP);
       setName(responseData.name);
       setGuestNames(responseData.guestNames);
-      // form.setFieldsValue({
-      //   name: responseData.name
-      // })
       setEmail(value);
       setEmailLoading(false);
       showNotification(responseData.message);
@@ -176,7 +173,7 @@ const RSVP = () => {
   const showNotification = (message: string) => {
     api.success({
       message: message,
-      placement: "top",
+      placement: "topLeft",
       duration: 10,
     });
   };

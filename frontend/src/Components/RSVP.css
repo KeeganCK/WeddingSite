@@ -5,3 +5,7 @@
 .ant-select-item-option-content {
     font-family: 'Ysabeau Infant', sans-serif;
 }
+
+.ant-notification-notice {
+    margin-top: 70px;
+}
