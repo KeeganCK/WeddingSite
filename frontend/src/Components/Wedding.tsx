@@ -13,7 +13,7 @@ import { PiPlantThin } from "react-icons/pi";
 const LocationP = styled.p`
   font-size: 22px;
   @media(max-width: 800px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
@@ -34,7 +34,7 @@ const WeddingInfoP = styled.p`
   margin: 0;
   font-size: 28px;
   @media(max-width: 800px) {
-    font-size: 22px;
+    font-size: 18px;
   }
 `
 

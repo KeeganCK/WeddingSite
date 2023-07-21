@@ -100,7 +100,7 @@ const Music = () => {
   const onFinish = async (values: any) => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:3001/api/addMusic`, {
+      const response = await fetch(`https://mandkwedding-4c8008d201f3.herokuapp.com/api/addMusic`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -146,8 +146,9 @@ const Music = () => {
               playlist so we can dance the night away!
             </MusicDescriptionP>
             <MusicDescriptionP>
-              To begin adding songs, please enter your email below
+              To begin adding songs, please enter your email below.
             </MusicDescriptionP>
+            <br />
             <EmailDiv>
               <CustomSearch
                 loading={emailLoading}

@@ -57,7 +57,7 @@ const MusicTable = (props: MusicTableProps) => {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:3001/api/searchMusic/${value}`
+        `https://mandkwedding-4c8008d201f3.herokuapp.com/api/searchMusic/${value}`
       );
       const responseData = await response.json();
       if (!response.ok) {
