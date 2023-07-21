@@ -62,7 +62,7 @@ const Music = () => {
         throw new Error("Need to enter an Email");
       }
       const response = await fetch(
-        `http://localhost:3001/api/checkEmail/${value}`
+        `https://mandkwedding-4c8008d201f3.herokuapp.com/api/checkEmail/${value}`
       );
       const responseData = await response.json();
       //If reponse not good, throw an error
