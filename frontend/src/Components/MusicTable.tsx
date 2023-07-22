@@ -11,7 +11,7 @@ const MusicSearchDiv = styled.div`
   flex-direction: column;
   width: 70%;
   margin-top: 20px;
-  @media(max-width: 800px) {
+  @media (max-width: 800px) {
     width: 100%;
   }
 `;
@@ -30,21 +30,21 @@ const columns: ColumnsType<MusicProps> = [
     render: (text) => <FaItunesNote />,
   },
   {
-    title: "Artist",
-    dataIndex: "artist",
-    key: "artist",
-  },
-  {
     title: "Track",
     dataIndex: "track",
     key: "track",
+  },
+  {
+    title: "Artist",
+    dataIndex: "artist",
+    key: "artist",
   },
 ];
 
 interface MusicTableProps {
   searchAgain: boolean;
   setSearchAgain: React.Dispatch<React.SetStateAction<boolean>>;
-	cssClass: string;
+  cssClass: string;
 }
 
 const MusicTable = (props: MusicTableProps) => {
@@ -85,8 +85,6 @@ const MusicTable = (props: MusicTableProps) => {
     });
     setLoading(false);
   };
-
-	
 
   return (
     <MusicSearchDiv>

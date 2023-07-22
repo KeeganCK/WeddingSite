@@ -32,10 +32,10 @@ export const MusicTableP = styled.p`
 
 export const FormDiv = styled.div`
   width: 70%;
-  @media(max-width: 800px) {
+  @media (max-width: 800px) {
     width: 100%;
   }
-`
+`;
 
 export const MusicDescriptionP = styled.p`
   font-size: 20px;
@@ -197,19 +197,20 @@ const Music = () => {
                 }}
               >
                 <CustomFormItem
-                  label="Artist"
-                  name="artist"
-                  style={{ width: "100%" }}
-                >
-                  <CustomInput />
-                </CustomFormItem>
-                <CustomFormItem
                   label="Track"
                   name="track"
                   style={{ width: "100%" }}
                 >
                   <CustomInput />
                 </CustomFormItem>
+                <CustomFormItem
+                  label="Artist"
+                  name="artist"
+                  style={{ width: "100%" }}
+                >
+                  <CustomInput />
+                </CustomFormItem>
+
                 <CustomFormItem>
                   <Button loading={loading} type="primary" htmlType="submit">
                     Add Song
