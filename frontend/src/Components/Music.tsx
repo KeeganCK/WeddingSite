@@ -66,6 +66,7 @@ const Music = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [searchAgain, setSearchAgain] = useState<boolean>(false);
   const [cssClass, setCssClass] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
 
   const [api, contextHolder] = notification.useNotification();
 
@@ -91,11 +92,11 @@ const Music = () => {
           label: i.toString(),
         };
         tempArray.push(tempObject);
+        setEmail(email);
       }
       setEmailLoading(false);
       showNotification(responseData.message);
     } catch (err: any) {
-      console.log(err);
       api.error({
         message: err.message,
         placement: "top",
@@ -124,6 +125,7 @@ const Music = () => {
           body: JSON.stringify({
             artist: values.artist,
             track: values.track,
+            email: email
           }),
         }
       );
@@ -163,7 +165,7 @@ const Music = () => {
               playlist so we can dance the night away!
             </MusicDescriptionP>
             <MusicDescriptionP>
-              To begin adding songs, please enter your email below.
+              To begin adding songs, please enter the email that the invitation was sent to below.
             </MusicDescriptionP>
             <br />
             <EmailDiv>
@@ -177,6 +179,7 @@ const Music = () => {
           </div>
         ) : (
           <MusicTableDiv>
+            <StyledPlant />
             <MusicDescriptionAddP>
               To add songs, enter the artist name and track name as accurately
               as possible. Add as many songs as you'd like!
@@ -200,6 +203,12 @@ const Music = () => {
                   label="Track"
                   name="track"
                   style={{ width: "100%" }}
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input a track",
+                    },
+                  ]}
                 >
                   <CustomInput />
                 </CustomFormItem>
@@ -207,6 +216,12 @@ const Music = () => {
                   label="Artist"
                   name="artist"
                   style={{ width: "100%" }}
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input an artists name",
+                    },
+                  ]}
                 >
                   <CustomInput />
                 </CustomFormItem>

@@ -163,7 +163,6 @@ const RSVP = () => {
       setEmailLoading(false);
       showNotification(responseData.message);
     } catch (err: any) {
-      console.log(err);
       api.error({
         message: err.message,
         placement: "top",
@@ -176,6 +175,7 @@ const RSVP = () => {
     api.success({
       message: message,
       placement: "top",
+      duration: 10
     });
   };
 
@@ -187,6 +187,9 @@ const RSVP = () => {
         {!emailFound || doneRSVP ? (
           <div style={{ textAlign: "center" }}>
             <StyledPlant />
+            <p style={{ fontSize: "20px", margin: "0 0 10px 0" }}>
+              To RSVP, please start by entering the email that the invitation was sent to below.
+            </p>
             <p style={{ fontSize: "20px", margin: "0 0 10px 0" }}>
               Please RSVP by October 1st, 2023.
             </p>
@@ -201,6 +204,7 @@ const RSVP = () => {
           </div>
         ) : (
           <MusicTableDiv>
+            <StyledPlant />
             <FormDiv>
               <Form
                 name="rsvp"

@@ -19,13 +19,12 @@ const Accomodations = () => {
       <RSVPDiv>
         <AccDescriptionP>
           We are currently in the process of finding group rates for
-          accomodations for a total of 7 nights (April 28th, 2024
-          to May 5th, 2024). Once we have an estimate of how many people are
-          attending, we will post the accomodation options to this page.{" "}
+          accomodations for a total of 7 nights (April 28th, 2024 to May 5th,
+          2024). We are hoping to keep the accomodation rates between
+          $50-100CAD/night per room. Once we have an estimate of how many people
+          are attending, we will post the accomodation options to this page.{" "}
         </AccDescriptionP>
-        <AccDescriptionP>
-        Please RSVP as soon as you can!{" "}
-        </AccDescriptionP>
+        <AccDescriptionP>Please RSVP as soon as you can! </AccDescriptionP>
       </RSVPDiv>
     </SectionDiv>
   );
