@@ -92,8 +92,8 @@ const Music = () => {
           label: i.toString(),
         };
         tempArray.push(tempObject);
-        setEmail(email);
       }
+      setEmail(email);
       setEmailLoading(false);
       showNotification(responseData.message);
     } catch (err: any) {
