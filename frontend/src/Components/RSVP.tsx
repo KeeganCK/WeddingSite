@@ -46,6 +46,7 @@ export const CustomFormItem = styled(Form.Item)`
     /* font-weight: bold; */
     font-size: 16px;
   }
+  width: 100%;
 `;
 
 export const CustomInput = styled(Input)`
@@ -209,6 +210,12 @@ const RSVP = () => {
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
               >
                 <CustomFormItem
                   label="Your Name"
