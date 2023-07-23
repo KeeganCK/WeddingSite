@@ -457,11 +457,19 @@ const RSVP = () => {
                     </CustomFormItem>
                   </>
                 )}
-                <CustomFormItem wrapperCol={{ offset: 10, span: 16 }}>
-                  <Button loading={loading} type="primary" htmlType="submit">
-                    Submit
-                  </Button>
-                </CustomFormItem>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <CustomFormItem>
+                    <Button loading={loading} type="primary" htmlType="submit">
+                      Submit
+                    </Button>
+                  </CustomFormItem>
+                </div>
               </Form>
             </FormDiv>
           </MusicTableDiv>
