@@ -204,7 +204,7 @@ const RSVP = () => {
             <FormDiv>
               <Form
                 name="rsvp"
-                labelCol={{ span: 0 }}
+                labelCol={{ span: 24 }}
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
