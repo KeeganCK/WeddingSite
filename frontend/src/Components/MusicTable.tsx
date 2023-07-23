@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CustomSearch } from "./RSVP";
 import { styled } from "styled-components";
-import { Table } from "antd";
+import { Table, notification } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { FaItunesNote } from "react-icons/fa6";
 import "./MusicTable.css";
@@ -50,6 +50,7 @@ interface MusicTableProps {
 const MusicTable = (props: MusicTableProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [tableData, setTableData] = useState<Array<MusicProps>>();
+  const [api, contextHolder] = notification.useNotification();
 
   useEffect(() => {
     searchMusic("");
@@ -75,9 +76,10 @@ const MusicTable = (props: MusicTableProps) => {
       setLoading(false);
     }
   };
-
+  
   return (
     <MusicSearchDiv>
+      {contextHolder}
       <CustomSearch
         loading={loading}
         enterButton="Search"
