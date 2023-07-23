@@ -93,7 +93,7 @@ const Music = () => {
         };
         tempArray.push(tempObject);
       }
-      setEmail(email);
+      setEmail(responseData.email);
       setEmailLoading(false);
       showNotification(responseData.message);
     } catch (err: any) {
