@@ -3,7 +3,7 @@ import { SectionDiv } from "./RSVP";
 import { TitleP, StyledPlant } from "./Wedding";
 import { styled } from "styled-components";
 
-const FAQCardDiv = styled.div`
+export const FAQCardDiv = styled.div`
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
