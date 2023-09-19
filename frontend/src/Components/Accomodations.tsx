@@ -12,6 +12,11 @@ export const AccDescriptionP = styled.p`
   /* font-weight: bold; */
 `;
 
+const AccomodationDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const Accomodations = () => {
   const [email, setEmail] = useState<string>("");
   const [emailLoading, setEmailLoading] = useState<boolean>(false);
@@ -58,7 +63,7 @@ const Accomodations = () => {
       <StyledPlant />
       <RSVPDiv>
         {!email ? (
-          <EmailDiv>
+          <AccomodationDiv>
             <AccDescriptionP>
               To see the accomodation information please start by entering your
               email.{" "}
@@ -69,7 +74,7 @@ const Accomodations = () => {
               onSearch={findEmail}
               placeholder="Please only use the email that the invitation was sent to"
             />
-          </EmailDiv>
+          </AccomodationDiv>
         ) : (
           <>
             <AccDescriptionP>
@@ -80,7 +85,7 @@ const Accomodations = () => {
             </AccDescriptionP>
             <AccDescriptionP>
               Room style: Standard size (2 separate double beds with balcony
-              overlooking the ocean).
+              overlooking the ocean)
             </AccDescriptionP>
             <AccDescriptionP>
               The cost of a standard sized hotel room is $100 CAD per night.
@@ -91,9 +96,8 @@ const Accomodations = () => {
               each room.
             </AccDescriptionP>
             <AccDescriptionP>
-              Note: The above cost is for two people staying in the room. For
-              each additional person (max. of 4 people per room) it is an additional
-              $40/individual.
+              Note: the above cost is for a total of two people staying in the
+              room. If
             </AccDescriptionP>
             <AccDescriptionP>
               <strong>
@@ -113,21 +117,14 @@ const Accomodations = () => {
             </AccDescriptionP>
             <AccDescriptionP>
               Estilo de habitación: Tamaño estándar (2 camas doble con balcón
-              con vista al mar).
+              con vista al mar)
             </AccDescriptionP>
             <AccDescriptionP>
               El costo por cuarto estándar es de $100 Canadiense ($310,000 COL)
               por noche. Esta tarifa de grupo es para 6 noches, de Abril 28 asta
-              el 4 de mayo de 2024. Esto incluye desayuno y acceso a todos los
-              servicios del hotel (gimnasio, piscina, wifi, etc.). El costo total
-              para la estadía será de $600 Canadiense ($55,800,000 COL) y el
-              hotel requiere que coloquemos un depósito del 40% para reservar
-              cada habitación.
-            </AccDescriptionP>
-            <AccDescriptionP>
-              Nota: El costo anterior es para dos personas alojadas en la
-              habitación. Por cada persona adicional (máximo 4 personas por habitación)
-              se cobran $40 adicionales por persona.
+              el 4 de mayo de 2024. El costo total para la estadía será de $600
+              Canadiense ($55,800,000 COL) y el hotel requiere que coloquemos un
+              depósito del 40% para reservar cada habitación.
             </AccDescriptionP>
             <AccDescriptionP>
               <strong>
