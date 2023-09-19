@@ -7,7 +7,7 @@ import styled from "styled-components";
 const ActivityContainer = styled.div`
   display: grid;
   grid-template-colums: 1fr 1fr 1fr;
-`
+`;
 
 const ActivityCardDiv = styled.div`
   border: 1px solid black;
@@ -27,9 +27,12 @@ const Activities = () => {
       <StyledPlant />
       <RSVPDiv>
         <AccDescriptionP>
-         A variety of activities that you can do in Cartagena are listed below!
+          We are putting together a list of activites that you can do in
+          Cartagena so that you can enjoy Colombia as much as possible!
+          Different options will be posted to this page closer to the wedding
+          date.{" "}
         </AccDescriptionP>
-        <ActivityContainer>
+        {/* <ActivityContainer>
           <ActivityCardDiv>
             Something in here
           </ActivityCardDiv>
@@ -39,7 +42,7 @@ const Activities = () => {
           <ActivityCardDiv>
             Something in here
           </ActivityCardDiv>
-        </ActivityContainer>
+        </ActivityContainer> */}
       </RSVPDiv>
     </SectionDiv>
   );

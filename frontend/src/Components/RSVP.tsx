@@ -243,6 +243,7 @@ const RSVP = () => {
                       { value: "chicken", label: "Chicken" },
                       { value: "pork", label: "Pork" },
                       { value: "vegtarian", label: "Vegetarian" },
+                      { value: "not going", label: "Not Attending" },
                     ]}
                   />
                 </CustomFormItem>
