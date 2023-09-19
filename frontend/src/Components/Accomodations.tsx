@@ -68,6 +68,10 @@ const Accomodations = () => {
               To see the accomodation information please start by entering your
               email.{" "}
             </AccDescriptionP>
+            <AccDescriptionP>
+              Para ver la información del alojamiento por favor comience
+              ingresando su correo electrónico.{" "}
+            </AccDescriptionP>
             <CustomSearch
               loading={emailLoading}
               enterButton="Check Email"
