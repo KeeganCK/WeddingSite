@@ -100,13 +100,19 @@ const Accomodations = () => {
               each room.
             </AccDescriptionP>
             <AccDescriptionP>
-              Note: the above cost is for a total of two people staying in the
-              room. For each additional person (max. of 4 people per room) it is an additional $40/individual (CAD).
+              If you'd like to stay longer than 6 nights, the same rate will
+              apply. Please contact us as soon as possible to let us know of the
+              dates you will be staying so we can let you know the required deposit.
+            </AccDescriptionP>
+            <AccDescriptionP>
+              <strong>Note: </strong>the above cost is for a total of two people staying in the
+              room. For each additional person (max. of 4 people per room) it is
+              an additional $40/individual (CAD).
             </AccDescriptionP>
             <AccDescriptionP>
               <strong>
-                To reserve your hotel room, please e-transfer $264 (CAD) to{" "}
-                {email} by October 15th, 2023.{" "}
+                To reserve your hotel room, please e-transfer the required deposit (the base six nights is $264 CAD) to{" "}
+                {email} by November 1st, 2023.{" "}
               </strong>
             </AccDescriptionP>
             <br />
@@ -132,13 +138,13 @@ const Accomodations = () => {
             </AccDescriptionP>
             <AccDescriptionP>
               Nota: El costo anterior es para dos personas alojadas en la
-              habitación. Por cada persona adicional (máximo 4 personas por habitación)
-              se cobran $110,000 (COL) adicionales por persona.
+              habitación. Por cada persona adicional (máximo 4 personas por
+              habitación) se cobran $110,000 (COL) adicionales por persona.
             </AccDescriptionP>
             <AccDescriptionP>
               <strong>
                 Para reservar su habitación, por favor realice una transferencia
-                electrónica de $264 (CAD) a {email} antes de October 15th, 2023.
+                electrónica de $264 (CAD) a {email} antes de Noviembre 1, 2023.
                 Si no puede enviar transferencias electrónicas, por favor
                 contáctenos y resolveremos algo!
               </strong>

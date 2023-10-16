@@ -191,7 +191,7 @@ const RSVP = () => {
               To RSVP, please start by entering the email that the invitation was sent to below.
             </p>
             <p style={{ fontSize: "20px", margin: "0 0 10px 0" }}>
-              Please RSVP by October 1st, 2023.
+              Please RSVP by November 1st, 2023.
             </p>
             <EmailDiv>
               <CustomSearch
