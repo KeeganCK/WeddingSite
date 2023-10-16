@@ -22,7 +22,7 @@ const PreWedding = () => {
       </RSVPDiv>
       <AddToCalendarButton
         name="Keegan and Milenas Pre-Wedding Event"
-        startDate="2024-05-01"
+        startDate="2024-04-30"
         options={["Apple", "Google", "Outlook.com"]}
         size={"2"}
         lightMode="dark"
