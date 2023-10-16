@@ -11,7 +11,7 @@ const PreWedding = () => {
       <StyledPlant />
       <RSVPDiv>
         <AccDescriptionP>
-          There will be a welcome event in Cartagena on May 1st 2024, the day before the wedding.
+          There will be a welcome event in Cartagena on April 30th 2024, two days before the wedding.
           More details on the specifics of the event will be coming soon.
         </AccDescriptionP>
         <AccDescriptionP>
